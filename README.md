@@ -1,2 +1,27 @@
-# bank-templates-android
-Sudanese Banks Templates Android App
+# قوالب البنوك السودانية — بناء APK من الهاتف
+
+## أسهل طريقة من هاتف Android (بدون تثبيت Android Studio)
+
+1. سجّل الدخول إلى GitHub من المتصفح وأنشئ مستودعاً جديداً (New repository).
+2. ارفع محتويات هذا المشروع إلى المستودع، مع إظهار الملفات المخفية إن لزم الأمر حتى يُرفع مجلد `.github`.
+3. افتح تبويب **Actions** في المستودع.
+4. اختر **Build Android APK** ثم **Run workflow**.
+5. انتظر حتى ينتهي التشغيل بعلامة نجاح خضراء.
+6. افتح التشغيل الناجح، وانزل إلى **Artifacts**، ثم نزّل `bank-templates-debug-apk`.
+7. فك ضغط ملف التنزيل، وستجد `app-debug.apk`. افتحه لتثبيت التطبيق. قد يطلب Android السماح بالتثبيت من هذا المصدر.
+
+## ملاحظات
+- ملف APK الناتج نسخة Debug للتجربة والتثبيت الشخصي.
+- لا تشارك ملف APK أو ترفعه للعامة قبل مراجعة المحتوى والحقوق.
+- إذا فشل البناء، افتح سجل التشغيل (Build) وأرسل صورة الخطأ.
+- عند تعديل `www/index.html`، ارفع التعديلات ثم أعد تشغيل Workflow.
+
+## البناء المحلي
+المتطلبات: Node.js 18+ و JDK 17 و Android SDK.
+
+```bash
+npm install
+npx cap add android
+npx cap sync android
+cd android && ./gradlew assembleDebug
+```
